@@ -29,8 +29,8 @@ In system logs it's reported as below:
 
 That frame is actually two stacked 256x192 halves:
 
-- **top half** – processed 8-bit grayscale image (Y channel, U/V neutral);
-- **bottom half** – raw 16-bit radiometric data packed as
+- *top half* – processed 8-bit grayscale image (Y channel, U/V neutral);
+- *bottom half* – raw 16-bit radiometric data packed as
   `pixel = (U << 8) | Y` (and `(V << 8) | Y1`).
 
 This project decodes the radiometric half and runs the following pipeline
@@ -219,10 +219,10 @@ Help usage information:
 ```
 ➜  simple-thermal-imager git:(main) ✗ ./target/release/simple-thermal-imager --help
 Usage: simple-thermal-imager [--device <device>] [--roi <roi>] [--min-area <min-area>]
- [--threshold <threshold>] [--diagnose] [--half <half>] [--packing <packing>] [--warmup <warmup>]
- [--settle <settle>] [--track-dist <track-dist>] [--track-miss <track-miss>] [--warm-delta <warm-delta>]
- [--cal0 <cal0>] [--cal1 <cal1>] [--no-temp] [--png-dir <png-dir>] [--png-every <png-every>]
- [--preview] [--stats]
+ [--threshold <threshold>] [--diagnose] [--half <half>] [--packing <packing>]
+ [--warmup <warmup>] [--settle <settle>] [--track-dist <track-dist>]
+ [--track-miss <track-miss>] [--warm-delta <warm-delta>] [--cal0 <cal0>] [--cal1 <cal1>]
+ [--no-temp] [--png-dir <png-dir>] [--png-every <png-every>] [--preview] [--stats]
 
 Thermal motion detector / blob tracker
 
@@ -293,14 +293,14 @@ Collect training crops for a future classifier (see `examples/crop_dumper.rs`):
 ```
 
 Running for weak signals, motion-only, sensitive, with ffplay preview visibility and stats output:
-```
+```bash
 ... -- --preview --stats --threshold 300 --min-area 60
 ```
 
 
 ## Debug
 
-General status:
+General status after connected camera:
 ```
 greenall# ls -l /dev/video*
 crw-rw----+ 1 root video 81, 0 Aug 29 22:21 /dev/video0
