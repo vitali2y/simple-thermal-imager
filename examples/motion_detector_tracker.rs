@@ -13,6 +13,38 @@
 //!
 //! stdout carries JSON only; all logs go to stderr
 
+// ➜  simple-thermal-imager git:(master) ✗ cargo r --example motion_detector_tracker -- \
+//   --half bottom --packing high_uv --threshold 600 --min-area 100 --settle 125 --warm-delta 800 \
+//   --cal0 19050:23.0 --cal1 22700:34.5 | jq -c '.detections[] | {id, x, y, area, max_temp_c}'
+//    Compiling simple-thermal-imager v0.1.0 (/home/vit/prjs/simple-thermal-imager)
+//     Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.62s
+//      Running `target/debug/examples/motion_detector_tracker --half bottom --packing high_uv --threshold 600
+//     --min-area 100 --settle 125 --warm-delta 800 --cal0 '19050:23.0' --cal1 '22700:34.5'`
+// initializing background model (waiting up to 500 frames, about 20 seconds)...
+// frame    0: waiting for camera warmup...
+// frame   25: waiting for camera warmup...
+// frame   50: waiting for camera warmup...
+// background initialized from 10 frames
+// starting motion detection loop...
+// Sensor settled. Detection armed.
+// {"id":1,"x":33,"y":16,"area":107,"max_temp_c":27.026575}
+// {"id":1,"x":33,"y":16,"area":108,"max_temp_c":27.013973}
+// {"id":1,"x":33,"y":16,"area":113,"max_temp_c":26.988768}
+// {"id":1,"x":32,"y":15,"area":109,"max_temp_c":26.950958}
+// {"id":1,"x":32,"y":15,"area":112,"max_temp_c":26.950958}
+// {"id":1,"x":32,"y":15,"area":114,"max_temp_c":26.950958}
+// {"id":1,"x":32,"y":15,"area":114,"max_temp_c":26.925753}
+// {"id":2,"x":153,"y":115,"area":136,"max_temp_c":22.603014}
+// {"id":2,"x":156,"y":112,"area":115,"max_temp_c":22.577808}
+// {"id":3,"x":167,"y":154,"area":1129,"max_temp_c":25.047945}
+// {"id":3,"x":169,"y":156,"area":960,"max_temp_c":25.047945}
+// {"id":3,"x":175,"y":160,"area":521,"max_temp_c":25.02274}
+// {"id":4,"x":85,"y":175,"area":208,"max_temp_c":25.07315}
+// {"id":5,"x":33,"y":16,"area":105,"max_temp_c":26.976164}
+// {"id":5,"x":33,"y":16,"area":111,"max_temp_c":26.976164}
+// ^C
+// ➜  simple-thermal-imager git:(master) ✗
+
 use anyhow::{Context, Result, bail};
 use argh::FromArgs;
 use image::{ImageBuffer, Luma};

@@ -2,7 +2,7 @@
 name = "simple-thermal-imager"
 description = "Thermal motion detection & blob tracking app"
 authors = ["Vi+ <vitaliyy@gmail.com>"]
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 
 [dependencies]
