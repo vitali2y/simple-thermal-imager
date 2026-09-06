@@ -536,8 +536,7 @@ camera schedule.
 - [ ] generic source modes: `--mode stacked16|luma`, `--width/--height`,
       luma-appropriate thresholds (support analog/webcam sources)
 - [ ] object classification: ONNX (YOLO-cls/MobileNet) via `tract` or
-      `candle`, fed by `crop_dumper` datasets; add `class`/`confidence`
-      to JSON
+      `candle`, fed by `crop_dumper` datasets; add `class`/`confidence` to JSON
 - [ ] tracking upgrades: velocity-aware matching (Kalman), enter/exit events,
       object counting per session
 - [ ] calibration helper: interactive two-point calibration mode
@@ -548,6 +547,7 @@ camera schedule.
 - [ ] per-track temperature history and simple analytics in the JSON stream
 - [ ] config file support instead of long CLI lines
 - [ ] cross-compilation (`Orange Pi Zero 2W`)
+- [ ] to add `--quiet` CLI switch for silent machine-to-machine mode
 
 
 ## License

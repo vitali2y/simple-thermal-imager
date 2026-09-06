@@ -198,12 +198,19 @@ fn main() -> Result<()> {
             let mean_signed = sum_signed as f64 / thermal.len() as f64;
             let sensor_jump = changed_100 > (thermal.len() * 9) / 10 && mean_abs >= 80.0;
 
-            if mean_abs >= 20.0 || changed_100 > thermal.len() / 20 {
+            // if mean_abs >= 20.0 || changed_100 > thermal.len() / 20 {
+            //     eprintln!(
+            //         "frame jump {:>6} | mean_abs {:>7.2} | mean_signed {:+8.2} | >=100 {:>6} | >=200 {:>6}",
+            //         frame_no, mean_abs, mean_signed, changed_100, changed_200,
+            //     );
+            // }
+            if args.stats && (mean_abs >= 20.0 || changed_100 > thermal.len() / 20) {
                 eprintln!(
                     "frame jump {:>6} | mean_abs {:>7.2} | mean_signed {:+8.2} | >=100 {:>6} | >=200 {:>6}",
                     frame_no, mean_abs, mean_signed, changed_100, changed_200,
                 );
             }
+
             if sensor_jump {
                 let offset = mean_signed.round() as i32;
 
